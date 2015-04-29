@@ -9,13 +9,13 @@ print sys.getdefaultencoding()
 s = solr.Solr('http://localhost:8080/solr', timeout=1000)
 
 # add a document to the index
-tdoc = {"id": 1, "title": "Lucene in Action"}
+tdoc = {"id": 3, "title": "Lucene in Action"}
 
 for k in tdoc:
     print "dict[%s] =" % k, tdoc[k]
 
 s.add(tdoc)
-
+s.commit()
 
 # do a search
 response = s.select('Lucene')
